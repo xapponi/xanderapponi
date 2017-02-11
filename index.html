@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags always come first -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+  <title>Xander Apponi </title>
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.2/css/bootstrap.min.css" integrity="sha384-y3tfxAZXuh4HwSYylfB+J125MxIs6mR5FOHamPBG064zB+AFeWH94NdvaCBm8qnd" crossorigin="anonymous">
+  <link rel="stylesheet" href="custom.css">
+  <script>
+  function _(id) {return document.getElementById(id);}
+  function submitForm () {
+    _("mybtn").disabled = true;
+    _("status").innerHTML = 'please wait ... ';
+    var formdata = new FormData();
+    formdata.append("n", _("n").value);
+    formdata.append("e", _("e").value);
+    formdata.append("m", _("m").value);
+    var ajax = new XMLHttpRequest();
+    ajax.open("POST", "process.php");
+    ajax.onreadystatechange = function() {
+      if (ajax.readyState == 4 && ajax.status == 200) {
+        if (ajax.responseText == "success") {
+          _("my_form").innerHTML = '<h2>Thanks ' + _("n").value + ', your message has been sent.</h2>';
+        }
+        else {
+          _("status").innerHTML = ajax.responseText;
+          _("mybtn").disabled = false;
+        }
+      }
+    }
+    ajax.send(formdata);
+  }
+  </script>
+  </head>
+
+  <body id="home" data-spy="scroll" data-target=".navbar" data-offset="100">
+  <!-- navbar -->
+    <nav class="navbar navbar-dark bg-primary navbar-fixed-top">
+      <div class="container">
+        <ul class="nav navbar-nav">
+        <li class="nav-item">
+          <a class="nav-link" href="#home">Home <span class="sr-only">(current)</span></a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#about">About</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#portfolio">Portfolio</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#contact">Contact</a>
+        </li>
+        </ul>
+        <a class="navbar-brand pull-sm-right hidden-xs-down " href="http://www.teamtreehouse.com">Created by Xander Apponi</a>
+      </div>
+    </nav>
+
+  <!-- /navbar -->
+
+  <!-- jumbotron -->
+    <div class="jumbotron jumbotron-fluid bg-info">
+      <div class="container text-sm-center p-t-3">
+      <h1 class="display-2">Xander Apponi</h1>
+      <p class="lead">Web Developer</p>
+      </div>
+    </div>
+  <!-- /jumbotron -->
+    <div class="container p-t-2">
+  <!-- about -->
+
+    <div id="about" class="row">
+      <div class="col-lg-8">
+        <h2 id="about" class="display-4 m-b-3 text-muted col-xs-12">About Me</h2>
+        <img class="m-b-1 img-fluid img-circle hidden-xs-down profile" src="img/Me_2.jpeg" alt="Picture of Me">
+        <p>Hi, I’m Xander Apponi. I am a high school student who loves to code, run, read, play guitar, and more. Welcome to my site!</p>
+        <p>Although I am young, I have a passion for learning new things! I develop websites on the side of working a part-time job, and school. If you or some one you know is in need of a website, please contact me!</p>
+
+      </div>
+      <div class="row col-md-12 col-lg-4">
+        <h3 class="m-b-2">Skills</h3>
+        <div class="list-group">
+          <a href="#" class="list-group-item"><strong>HTML</strong>: The backbone of the web</a>
+          <a href="#" class="list-group-item"><strong>CSS</strong>: To make things look pretty</a>
+          <a href="#" class="list-group-item"><strong>JavaScript</strong>: Front-end functionality</a>
+          <a href="#" class="list-group-item"><strong>PHP</strong>: Back-end functionality</a>
+          <a href="#" class="list-group-item"><strong>Wordpress</strong>: Developing powerfull content management systems</a>
+          <a href="#" class="list-group-item"><strong>Design</strong>: Make the web pleasing to look at</a>
+        </div>
+      </div>
+    </div><!-- /about -->
+    <hr>
+    <!-- portfolio -->
+    <div class="row">
+      <div class="container">
+        <h2 id="portfolio" class="display-4 text-xs-center m-b-3 m-t-2 text-muted col-xs-12">Portfolio</h2>
+      </div>
+      <div class="col-md-6">
+        <div class="card">
+          <img class="card-img-top img-fluid port-img" src="img/bestCity.PNG" alt="Snapshot of Website">
+            <div class="card-block">
+              <h4 class="card-title">The Best City</h4>
+              <p class="card-text">For this site, I experimented with different column properties and layouts. I practiced using flex-box properties and media queries to make a responsive, multi-column design.</p>
+            </div>
+        </div>
+      </div>
+
+      <div class="col-md-6">
+        <div class="card">
+          <img class="card-img-top img-fluid port-img" src="img/cssTransitionsAndTransforms.PNG" alt="Snapshot of Website">
+            <div class="card-block"">
+              <h4 class="card-title">CSS Animation</h4>
+              <p class="card-text">Simple animations add value to a site. Check out their use in both the buttons, and the photo overlays. Animations bring the page to life and give the visitors an interactive experience.</p>
+           </div>
+        </div>
+      </div>
+
+      <div class="col-md-6">
+        <div class="card">
+          <img class="card-img-top img-fluid port-img" src="img/lakeTahoe2.PNG" alt="Snapshot of Website">
+            <div class="card-block">
+              <h4 class="card-title">Lake Tahoe</h4>
+              <p class="card-text">Box shadows, SVGs, floats, and more! This info site showcases various CSS properties in a design that is modern, simple, and beautiful.</p>
+            </div>
+        </div>
+      </div>
+
+      <div class="col-md-6">
+        <div class="card">
+          <img class="card-img-top img-fluid port-img" src="img/simpleGallery2.PNG" alt="Snapshot of Website">
+            <div class="card-block">
+              <h4 class="card-title">A Simple Gallery</h4>
+              <p class="card-text">A very simple gallery to show off some cool picures. Practicing "nth-child" in CSS to select and format various pictures.</p>
+            </div>
+        </div>
+      </div>
+
+    </div><!-- /portfolio -->
+
+    <!-- contact -->
+    <hr>
+    <div class="row p-y-2 text-muted">
+      <div class="col-sm-8 col-sm-push-2">
+        <h3 class="">Contact Us</h3>
+          <form id="my_form" onsubmit="submitForm(); return false;">
+            <p><input id="n" placeholder="Name" required></p>
+            <p><input id="e" placeholder="Email Address" type="email" required></p>
+            <textarea id="m" placeholder="Write your message here" rows="10" required></textarea>
+            <p><input id="mybtn" type="submit" value="Submit Form"> <span id="status"></span></p>
+          </form>
+    </div>
+    <hr><!-- contact-->
+
+    <!-- footer -->
+    <div class="row p-y-1">
+      <div>
+        <div class="col-xs-2">
+          <a href="http://www.twitter.com"><img class="img-circle social-icon" alt="twitter" src="img/twitter.png"></a>
+        </div>
+        <div class="col-xs-2">
+          <a href="http://www.facebook.com"><img class="img-circle social-icon" alt="facebook" src="img/facebook.jpg"></a>
+        </div>
+        <div class="col-xs-2">
+          <a href="http://www.linkedin.com"><img class="img-circle social-icon" alt="linkedin" src="img/linkedin.png"></a>
+        </div>
+        <div class="col-xs-6 text-md-right">
+          <small>&copy; 2016 Xander Apponi</small>
+        </div>
+      </div>
+    <!-- /footer -->
+    </div>  <!-- /.container -->
+
+    <!-- jQuery first, then Bootstrap JS. -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.2/js/bootstrap.min.js" integrity="sha384-vZ2WRJMwsjRMW/8U7i6PWi6AlO1L79snBrmgiDpgIWJ82z8eA5lenwvxbMV1PAh7" crossorigin="anonymous"></script>
+  </body>
+</html>
